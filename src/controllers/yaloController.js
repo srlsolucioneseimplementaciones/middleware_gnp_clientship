@@ -9,9 +9,6 @@ const SendHSM = (req, res) => {
     let to = req.body.to;
     let template = req.body.template;
     let params = req.body.params;
-    console.log(to);
-    console.log(template);
-    console.log(params);
 
     const data = {
         type: template,
@@ -35,7 +32,7 @@ const SendHSM = (req, res) => {
 
     axios(options)
         .then(response => {
-            console.log(response);
+            console.log("RESPUESTA: ", response.body);
             res.sendStatus(200);
         })
         .catch(error => {
