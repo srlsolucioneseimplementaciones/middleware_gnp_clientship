@@ -63,7 +63,28 @@ const GetClientId = (clientId, clientSecret) => {
     })
 }
 
+const InsertHSM = (datos) => {
+    return new Promise((resolve, reject) => {
+        sql.connect(config).then(pool => {
+            return pool.request()
+                .input("nombre", datos.nombre)
+                .input("telefono", datos.telefono)
+                .input("usuario", datos.usuario)
+                .input("template", datos.template)
+                .execute("SP_INSERT_HSM");
+        })
+        .then(result => {
+            resolve(result);
+        })
+        .catch(error => {
+            console.error("Error: ", error);
+            reject();
+        })
+    })
+}
+
 module.exports = {
     StoreClientId,
-    GetClientId
+    GetClientId,
+    InsertHSM
 }
