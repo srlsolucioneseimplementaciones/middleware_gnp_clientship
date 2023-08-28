@@ -5,7 +5,7 @@ const templates = [
     },
     {
         "nombre": "gps_deducible", 
-        "text": "Buen día {{nombre_cliente}}, te escribo de GNP Seguros. Tu Póliza de Seguro de Auto GNP te brinda la instalación sin costo de un dispositivo de localización para tu {{marca}} {{modelo}} con número de serie {{numero_serie}}. 🔎¿Por qué debes instalar y activar el dispositivo? Con la instalación y activación del dispositivo, tu vehículo está más protegido, en caso de robo se incrementan las probabilidades de localizarlo, además, de acuerdo a tu Póliza es indispensable para evitar variaciones en el porcentaje de tu deducible por robo total, podrás consultar más detalles en la sección observaciones de tu Póliza. Para instalar y activar el dispositivo, es necesario programar una cita con Proveedor, nuestro {{proveedor}} autorizado, agenda tu cita ahora."
+        "text": "Buen día {{nombre_cliente}}, te escribo de GNP Seguros. Tu Póliza de Seguro de Auto GNP te brinda la instalación sin costo de un dispositivo de localización para tu {{marca}} {{modelo}} con número de serie {{numero_serie}}. 🔎¿Por qué debes instalar y activar el dispositivo? Con la instalación y activación del dispositivo, tu vehículo está más protegido, en caso de robo se incrementan las probabilidades de localizarlo, además, de acuerdo a tu Póliza es indispensable para evitar variaciones en el porcentaje de tu deducible por robo total, podrás consultar más detalles en la sección observaciones de tu Póliza. Para instalar y activar el dispositivo, es necesario programar una cita con {{Proveedor}}, nuestro proveedor autorizado, agenda tu cita ahora."
     },
     {
         "nombre": "gps_cobertura_recordatorio_4", 
