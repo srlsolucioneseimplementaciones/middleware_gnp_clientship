@@ -10,11 +10,13 @@ const SendHSM = (req, res) => {
     let to = req.body.to;
     let template = req.body.template;
     let params = req.body.params;
-    let index = templates.find((e) => e.nombre == template);
+    let index = templates.findIndex((e) => e.nombre == template);
+
+    let curTemplate = templates[index].text;
     let keys = Object.keys(params);
 
     keys.forEach((k) => {
-        index.text = index.text.replace("{{" + k + "}}", params[k]);
+        curTemplate = curTemplate.replace("{{" + k + "}}", params[k]);
     })
 
     const data = {
@@ -41,7 +43,7 @@ const SendHSM = (req, res) => {
         "nombre": template,
         "telefono": to.replace("+52", "521"),
         "usuario": "clientship",
-        "template": index.text
+        "template": curTemplate
     }
 
     axios(options)
