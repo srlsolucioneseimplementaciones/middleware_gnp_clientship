@@ -3,10 +3,12 @@ const {
     YALO_HSM_URL
 } = require("../config");
 const axios = require("axios");
+const moment = require("moment");
 const { InsertHSM } = require("../models");
 const { templates } = require("../models/templates");
 
 const SendHSM = (req, res) => {
+    console.log("Inicio ", moment().format("YYYY-MM-DD HH:mm:ss.SSS"));
     let to = req.body.to;
     let template = req.body.template;
     let params = req.body.params;
@@ -50,7 +52,7 @@ const SendHSM = (req, res) => {
         .then(response => {
             InsertHSM(datos)
                 .then(dbResponse => {
-                    console.log(dbResponse);
+                    console.log("Fin ", moment().format("YYYY-MM-DD HH:mm:ss.SSS"));
                 })
                 .catch(dbError => {
                     console.error(dbError);
