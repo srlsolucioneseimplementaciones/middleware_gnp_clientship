@@ -9,6 +9,7 @@ const { templates } = require("../models/templates");
 
 const SendHSM = (req, res) => {
     console.log("Inicio ", moment().format("YYYY-MM-DD HH:mm:ss.SSS"));
+    console.log("Se enviara mensaje al numero " + req.body.to);
     let to = req.body.to;
     let template = req.body.template;
     let params = req.body.params;
