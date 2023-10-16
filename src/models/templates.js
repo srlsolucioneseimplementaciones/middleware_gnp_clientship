@@ -22,6 +22,14 @@ const templates = [
     {
         "nombre": "gps_deducible_version2", 
         "text": "Buen día {{nombre_cliente}}, te escribo de GNP Seguros. Tu Póliza de Seguro de Auto GNP te brinda la instalación sin costo y a domicilio de un dispositivo de localización para tu {{marca}} {{modelo}} con número de serie {{numero_serie}}. 🔎¿Por qué debes instalar y activar el dispositivo? Con la instalación y activación del dispositivo, tu vehículo está más protegido, en caso de robo se incrementan las probabilidades de localizarlo, además, de acuerdo a tu Póliza es indispensable para evitar variaciones en el porcentaje de tu deducible por robo total, podrás consultar más detalles en la sección observaciones de tu Póliza. Para la instalación y activación de tu dispositivo, es necesario programar una cita connuestro proveedor autorizado {{Proveedor}}. Puedes hacerlo de dos maneras: dando clic en Agendar cita o llamando al 55 5337 0900 en la opción 2 para solicitar la programación de tu cita."
+    },
+    {
+        "nombre": "gps_cobertura_octubre",
+        "text": "Buen día {{nombre_cliente}}, te escribo de GNP Seguros. Tu Póliza de Seguro de Auto GNP te brinda la instalación sin costo y a domicilio de un dispositivo de localización para tu {{marca}} {{modelo}} con número de serie {{numero_serie}}. 🔎¿Por qué debes instalar y activar el dispositivo? Con la instalación y activación del dispositivo, tu vehículo está más protegido, en caso de robo se incrementan las probabilidades de localizarlo, además es indispensable para el pago de la cobertura por robo total de tu Póliza, podrás consultar más detalles en la sección observaciones de tu Póliza. Para la instalación y activación de tu dispositivo, es necesario programar una cita con nuestro autorizado {{Proveedor}}. Puedes hacerlo de dos maneras: dando clic en Agendar cita o llamando al 555337 0900 en la opción 2 para solicitar la programación de tu cita."
+    },
+    {
+        "nombre": "gps_deducible_octubre", 
+        "text": "Buen día {{nombre_cliente}}, te escribo de GNP Seguros. Tu Póliza de Seguro de Auto GNP te brinda la instalación sin costo y a domicilio de un dispositivo de localización para tu {{marca}} {{modelo}} con número de serie {{numero_serie}}. 🔎¿Por qué debes instalar y activar el dispositivo? Con la instalación y activación del dispositivo, tu vehículo está más protegido, en caso de robo se incrementan las probabilidades de localizarlo, además, de acuerdo a tu Póliza es indispensable para evitar variaciones en el porcentaje de tu deducible por robo total, podrás consultar más detalles en la sección observaciones de tu Póliza. Para la instalación y activación de tu dispositivo, es necesario programar una cita con nuestro proveedor autorizado {{Proveedor}}. Puedes hacerlo de dos maneras: dando clic en Agendar cita o llamando al 55 5337 0900 en la opción 2 para solicitar la programación de tu cita."
     }
 ]
 
