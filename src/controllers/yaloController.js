@@ -108,7 +108,7 @@ const SendMessageToGenesys = (payload) => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: '/api/genesys/messaging/clientship',
+            url: CONNECTORRS_URL + '/api/genesys/messaging/clientship',
             headers: { 
                 'Content-Type': 'application/json'
             },
