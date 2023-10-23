@@ -83,8 +83,47 @@ const InsertHSM = (datos) => {
     })
 }
 
+const InsertMSG = (datos) => {
+    console.log("DATOS", datos);
+    return new Promise((resolve, reject) => {
+        sql.connect(config).then(pool => {
+            return pool.request()
+                .input("telefono", datos.telefono)
+                .input("uuid", datos.uuid)
+                .input("params", datos.params)
+                .execute("INSERTAR_MENSAJE_BITACORA_GPS");
+        })
+        .then(result => {
+            resolve(result);
+        })
+        .catch(error => {
+            console.error("Error: ", error);
+            reject();
+        })
+    })
+}
+
+const GetMessageId = (telefono) => {
+    return new Promise((resolve, reject) => {
+        sql.connect(config).then(pool => {
+            return pool.request()
+                .input("telefono", telefono)
+                .execute("SP_GET_MSG_ID_GPS");
+        })
+        .then(result => {
+            resolve(result.recordset[0].uuid);
+        })
+        .catch(error => {
+            console.error("Error: ", error);
+            reject();
+        })
+    })
+}
+
 module.exports = {
     StoreClientId,
     GetClientId,
-    InsertHSM
+    InsertHSM,
+    InsertMSG,
+    GetMessageId
 }

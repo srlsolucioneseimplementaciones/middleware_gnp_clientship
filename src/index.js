@@ -27,6 +27,16 @@ app.get("/", (req, res) => {
     res.sendStatus(200);
 })
 
+app.post("/test", (req, res) => {
+    console.log("test", req.body);
+    res.sendStatus(200);
+})
+
+app.post("/hdi/telefono", (req, res) => {
+    console.log(req.body);
+    res.json({ "telefono": "5579475204" })
+})
+
 app.listen(HTTP_PORT, console.log("Corriendo en el puerto " + HTTP_PORT));
 
 module.exports = app;

@@ -12,5 +12,6 @@ module.exports = {
     DB_PORT: process.env.DB_PORT,
     ISSUER: process.env.ISSUER,
     YALO_HSM_URL: process.env.YALO_HSM_URL,
-    TOKEN_HSM_YALO: process.env.TOKEN_HSM_YALO
+    TOKEN_HSM_YALO: process.env.TOKEN_HSM_YALO,
+    CONNECTORRS_URL: process.env.CONNECTORRS_URL
 }
