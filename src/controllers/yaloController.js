@@ -13,10 +13,10 @@ const SendHSM = (req, res) => {
     console.log("Inicio ", moment().format("YYYY-MM-DD HH:mm:ss.SSS"));
     console.log("Se enviara mensaje al numero " + req.body.to);
     let to = req.body.to;
+    let poliza = req.body.poliza;
     let template = req.body.template;
     let params = req.body.params;
     let index = templates.findIndex((e) => e.nombre == template);
-
     let curTemplate = templates[index].text;
     let keys = Object.keys(params);
 
@@ -48,7 +48,8 @@ const SendHSM = (req, res) => {
         "nombre": template,
         "telefono": to.replace("+52", "521"),
         "usuario": "clientship",
-        "template": curTemplate
+        "template": curTemplate,
+        "poliza": poliza
     }
 
     axios(options)

@@ -90,8 +90,9 @@ const InsertMSG = (datos) => {
             return pool.request()
                 .input("telefono", datos.telefono)
                 .input("uuid", datos.uuid)
+                .input("poliza", datos.poliza)
                 .input("params", datos.params)
-                .execute("INSERTAR_MENSAJE_BITACORA_GPS");
+                .execute("INSERTAR_MENSAJE_BITACORA_GPS_V2");
         })
         .then(result => {
             resolve(result);
