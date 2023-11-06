@@ -52,6 +52,8 @@ const SendHSM = (req, res) => {
         "poliza": poliza
     }
 
+    console.log("DATOS: ", datos);
+
     axios(options)
         .then(response => {
             InsertHSM(datos)
