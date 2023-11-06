@@ -63,7 +63,8 @@ const SendHSM = (req, res) => {
                     let t = {
                         telefono: req.body.to.slice(-10),
                         params: JSON.stringify(req.body.params),
-                        uuid: id 
+                        uuid: id ,
+                        poliza: poliza
                     }
                     await InsertMSG(t);
                     let g = {
