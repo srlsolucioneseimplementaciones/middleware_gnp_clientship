@@ -121,10 +121,28 @@ const GetMessageId = (telefono) => {
     })
 }
 
+const GetPolizaByTelefono = (telefono) => {
+    return new Promise((resolve, reject) => {
+        sql.connect(config).then(pool => {
+            return pool.request()
+                .input("telefono", telefono)
+                .execute("SP_GET_POLIZA");
+        })
+        .then(result => {
+            resolve(result.recordset[0]);
+        })
+        .catch(error => {
+            console.error("Error: ", error);
+            reject();
+        })
+    })
+}
+
 module.exports = {
     StoreClientId,
     GetClientId,
     InsertHSM,
     InsertMSG,
-    GetMessageId
+    GetMessageId,
+    GetPolizaByTelefono
 }

@@ -1,11 +1,14 @@
 const {
     TOKEN_HSM_YALO,
     YALO_HSM_URL,
-    CONNECTORRS_URL
+    CONNECTORRS_URL,
+    CLIENTSHIP_CLIENTID,
+    CLIENTSHIP_SECRET,
+    URL_CLIENTSHIP
 } = require("../config");
 const axios = require("axios");
 const moment = require("moment");
-const { InsertHSM, InsertMSG, GetMessageId } = require("../models");
+const { InsertHSM, InsertMSG, GetMessageId, GetPolizaByTelefono } = require("../models");
 const { templates } = require("../models/templates");
 const { v4: uuidv4 } = require('uuid');
 
@@ -142,7 +145,77 @@ const GetMessageIdDB = (req, res) => {
         })
 }
 
+const GetPoliza = (req, res) => {
+    let telefono = req.params.telefono.slice(-10);
+    GetPolizaByTelefono(telefono)
+        .then(response => {
+            res.json({"uuid": response.uuid, "poliza": response.poliza});
+        })
+        .catch(error => {
+            res.sendStatus(500);
+        })
+}
+
+const SendToClientShip = (req, res) => {
+    let telefono = req.body.telefono.slice(-10);
+    let estado = req.body.estado;
+
+    GetPolizaByTelefono(telefono)
+        .then(async (response) => {
+            let d = {
+                "nombrepoliza": "actualizar_estado_genesys",
+                "idNotificacion": response.uuid,
+                "field": [
+                    {
+                        "name": "num_poliza",
+                        "value": response.poliza
+                    },
+                    {
+                        "name": "Estado",
+                        "value": estado
+                    },
+                    {
+                        "name": "Telefono",
+                        "value": telefono
+                    }
+                ]
+            }
+
+            await clientshipApi(d);
+
+            res.json({ "response": "OK" });
+        })
+        .catch(error => {
+            res.sendStatus(500);
+        })
+}
+
+async function clientshipApi (data) {
+    let config = {
+        method: "POST",
+        url: URL_CLIENTSHIP + "/backend/core/public/api/messages",
+        headers: { 
+            "Content-Type": "application/json", 
+            "X-ClientId": CLIENTSHIP_CLIENTID, 
+            "X-ClientSecret": CLIENTSHIP_SECRET
+        },
+        data : data
+    };
+
+    axios.request(config)
+        .then((response) => {
+            console.log(JSON.stringify(response.data));
+            return "OK";
+        })
+        .catch((error) => {
+            console.error("ERROR: ", error);
+            return "ERROR";
+        });
+}
+
 module.exports = {
     SendHSM,
-    GetMessageIdDB
+    GetMessageIdDB,
+    GetPoliza,
+    SendToClientShip
 }

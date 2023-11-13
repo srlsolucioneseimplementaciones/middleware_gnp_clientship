@@ -93,6 +93,7 @@ const Sign = (id, nombre, exp) => {
 
 const Verify = (req, res, next) => {
     try {
+        console.log(req);
         const token = req.header("authorization");
         // istanbul ignore next
         if(!token) {

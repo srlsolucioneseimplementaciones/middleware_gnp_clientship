@@ -13,5 +13,8 @@ module.exports = {
     ISSUER: process.env.ISSUER,
     YALO_HSM_URL: process.env.YALO_HSM_URL,
     TOKEN_HSM_YALO: process.env.TOKEN_HSM_YALO,
-    CONNECTORRS_URL: process.env.CONNECTORRS_URL
+    CONNECTORRS_URL: process.env.CONNECTORRS_URL,
+    CLIENTSHIP_CLIENTID: process.env.CLIENTSHIP_CLIENTID,
+    CLIENTSHIP_SECRET: process.env.CLIENTSHIP_SECRET,
+    URL_CLIENTSHIP: process.env.URL_CLIENTSHIP
 }
